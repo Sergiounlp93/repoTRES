@@ -1,6 +1,14 @@
 import re
 from builtins import int
 
+def es_primo(num):
+    if num < 2:     #si es menos que 2 no es primo, por lo tanto devolverá Falso
+        return False
+    for i in range(2, num):  #un rango desde el dos hasta el numero que nosotros elijamos
+        if num % i == 0:    #si el resto da 0 no es primo, por lo tanto devuelve Falso
+            return False
+    return True    #de lo contrario devuelve Verdadero
+
 """
     modulo que sirve para contar caracteres
     parametro: char[] , char
@@ -23,6 +31,8 @@ def interfaz(cadena):
     for letra in conjunto:
         cantidad = contarCaracter(cadena,letra)
         print(f"{letra} es :{cantidad}")
+        if es_primo(cantidad):
+            print("es primo")
     return 0
 
 
